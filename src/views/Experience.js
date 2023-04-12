@@ -7,7 +7,9 @@ import StyledDivider from '../components/StyledDivider';
 export default function Experience() {
   return (
     <StyledSection>
-      <Typography variant={'h5'}>EXPERIENCE</Typography>
+      <Typography id='my-experience' variant={'h5'}>
+        EXPERIENCE
+      </Typography>
       <StyledDivider />
       <Intern
         title={'GovTech Singapore'}

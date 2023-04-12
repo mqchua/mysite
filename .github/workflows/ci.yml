@@ -1,7 +1,4 @@
 name: Build and Test Workflow
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   push:
@@ -13,8 +10,7 @@ on:
 
 jobs:
   Build:
-    runs-on: macos-latest
-
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -31,6 +27,8 @@ jobs:
     - name: Test
       run: npm run test
 
+  Deploy:
+    runs-on: ubuntu-latest
     - name: Deploy to Vercel
       uses: amondnet/vercel-action@v20
       with:
