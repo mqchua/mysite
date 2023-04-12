@@ -1,20 +1,20 @@
-import Item from '@mui/material/Grid';
+import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 
-function Internship(props) {
+function Intern(props) {
   return (
-    <Item className='item' xs={12} pt={4}>
+    <Grid item className='item' xs={12} pt={4}>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <p style={{ fontSize: '11px', opacity: '0.6' }}>{props.period}</p>
-    </Item>
+    </Grid>
   );
 }
 
-Internship.propTypes = {
+Intern.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   period: PropTypes.string,
 };
 
-export default Internship;
+export default Intern;
