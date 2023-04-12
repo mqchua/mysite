@@ -33,8 +33,10 @@ jobs:
   Deploy:
     needs: Build
     runs-on: ubuntu-latest
+
     steps:
     - name: Deploy to Preview
+      if: github.event_name == 'push'
       uses: amondnet/vercel-action@v20
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -43,7 +45,7 @@ jobs:
         vercel-env: preview
 
     - name: Deploy to Production
-      if: github.ref == 'refs/heads/masters'
+      if: github.ref == 'refs/heads/main'
       uses: amondnet/vercel-action@v20
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
