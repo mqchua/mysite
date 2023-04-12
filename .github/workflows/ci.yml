@@ -30,11 +30,6 @@ jobs:
     - name: Test
       run: npm run test
 
-  Deploy:
-    needs: Build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Deploy to Preview
       if: github.event_name == 'push'
       uses: amondnet/vercel-action@v20
@@ -45,7 +40,7 @@ jobs:
         vercel-env: preview
 
     - name: Deploy to Production
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/master'
       uses: amondnet/vercel-action@v20
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
