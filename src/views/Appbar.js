@@ -1,8 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 import StyledButton from '../components/StyledButton';
 
 export default function ButtonAppBar() {
@@ -22,15 +21,13 @@ export default function ButtonAppBar() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' style={{ background: '#FAF7F0' }}>
-        <Toolbar style={{ backgroundColor: '#FAF7F0' }}>
-          <Typography color='black' variant='h6' component='div' sx={{ flexGrow: 1 }}></Typography>
-          <StyledButton>About</StyledButton>
-          <StyledButton onClick={scrollToExperience}>Experience</StyledButton>
-          <StyledButton onClick={scrollToEnd}>Contact</StyledButton>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar position='static' elevation={0} style={{ background: '#FAF7F0' }}>
+      <Toolbar>
+        <Grid style={{ flexGrow: 1 }}></Grid>
+        <StyledButton>About</StyledButton>
+        <StyledButton onClick={scrollToExperience}>Experience</StyledButton>
+        <StyledButton onClick={scrollToEnd}>Contact</StyledButton>
+      </Toolbar>
+    </AppBar>
   );
 }
